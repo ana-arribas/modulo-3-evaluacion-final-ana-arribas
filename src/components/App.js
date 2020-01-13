@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/App.css';
-import { fetchToApi } from '../services/api.js';
+import { fetchToApi, fetch2 } from '../services/api.js';
 import CharacterList from './CharacterList.js';
 import Filters from './Filters.js';
 import { Switch, Route } from 'react-router-dom';
@@ -11,9 +11,13 @@ class App extends React.Component {
     super(props)
     this.state = {
       allCharacters: [],
-      value: ''
+      value: '',
+      singleCharacter: {}
     }
     this.lifting = this.lifting.bind(this)
+    this.renderCharacter = this.renderCharacter.bind(this)
+    this.fetch2 = this.fetch2.bind(this)
+
   }
 
   componentDidMount() {
@@ -25,10 +29,30 @@ class App extends React.Component {
       })
   }
 
+  fetch2(id) {
+    if (id !== this.state.singleCharacter.id) {
+      fetch2(id)
+        .then(data => {
+          this.setState({
+            singleCharacter: data
+          })
+          console.log(this.state.singleCharacter)
+        })
+    }
+  }
+
   lifting(patata) {
     this.setState({
       value: patata
     })
+  }
+
+  renderCharacter(props) {
+    // console.log(props)
+    this.fetch2(props.match.params.id);
+    return <CharacterDetail oneCharacter={this.state.singleCharacter}
+    // pathid={props.match.params.id}
+    />
   }
 
   render() {
@@ -43,7 +67,7 @@ class App extends React.Component {
               value={this.state.value}
             />
           </Route>
-          <Route path="/character/:id" component={CharacterDetail} />
+          <Route path="/character/:id" render={this.renderCharacter} />
         </Switch >
       </div >
     );
