@@ -1,11 +1,9 @@
 import React from 'react'
 
 const Filters = (props) => {
-
     const handleChange = (event) => {
         props.handleChange(event.target.value)
     }
-
     return (
         <input
             className="search"
@@ -15,8 +13,6 @@ const Filters = (props) => {
             value={props.inputValue}
             onChange={handleChange}
         />
-
     );
 }
-
 export default Filters

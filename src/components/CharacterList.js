@@ -17,9 +17,7 @@ const CharacterList = (props) => {
             )}
     </ul>
 }
-
 CharacterList.propTypes = {
     allCharacters: PropTypes.array
 };
-
 export default CharacterList
