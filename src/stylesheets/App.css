@@ -41,12 +41,20 @@
   text-decoration: none;
   color: rgb(24, 255, 186);
 }
+.detail-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .info-detail{
   display: flex;
   justify-content: center;
+  max-width: 700px;
   color:rgb(24, 255, 186);
-  margin-top: 20px;
-  padding-bottom: 50px;
+  margin:20px;
+  padding: 30px;
+  border:solid 2px rgb(24, 255, 186);
 }
 .info-detail-names{
   display:flex;
@@ -54,7 +62,7 @@
   margin-left: 25px;
 }
 .button-back{
-  border: none;
+  border:none;
   background-color: black;
   color: rgb(24, 255, 186);
   font-weight: bold;

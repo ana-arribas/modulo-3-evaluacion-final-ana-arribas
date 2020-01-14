@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CharacterDetail = (props) => {
-    return <div>
+    return <div className="detail-wrapper">
         <Link to="/">
-            <button className="button-back">&lt; Volver</button>
+            <button className="button-back">&lt; Back</button>
         </Link>
         <div className="info-detail">
             <img src={props.oneCharacter.image} alt={props.oneCharacter.name} />
