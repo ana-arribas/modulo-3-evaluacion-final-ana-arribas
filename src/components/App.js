@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/App.css';
+import '../stylesheets/App.scss';
 import { fetchToApi } from '../services/api.js';
 import CharacterList from './CharacterList.js';
 import Filters from './Filters.js';
@@ -39,7 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" >
-        <img className="logo" src={logo2} alt="logo" />
+        <img className="App-logo" src={logo2} alt="logo" />
         <Switch>
           <Route exact path="/">
             <Filters

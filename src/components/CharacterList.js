@@ -3,10 +3,10 @@ import CharacterCard from './CharacterCard';
 import PropTypes from 'prop-types';
 
 const CharacterList = (props) => {
-    return <ul className="list">
+    return <ul className="App-list">
         {props.allCharacters
             .filter(eachCharacter => props.inputValue === '' || eachCharacter.name.toLowerCase().includes(props.inputValue.toLowerCase()))
-            .map(eachCharacter => <li className="character-li" key={eachCharacter.id}>
+            .map(eachCharacter => <li className="App-list-li" key={eachCharacter.id}>
                 <CharacterCard
                     image={eachCharacter.image}
                     name={eachCharacter.name}
@@ -18,6 +18,10 @@ const CharacterList = (props) => {
     </ul>
 }
 CharacterList.propTypes = {
-    allCharacters: PropTypes.array
+    allCharacters: PropTypes.array,
+    inputValue: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ])
 };
 export default CharacterList

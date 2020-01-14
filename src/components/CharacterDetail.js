@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CharacterDetail = (props) => {
-    return <div className="detail-wrapper">
+    return <div className="App-detail">
         <Link to="/">
-            <button className="button-back">&lt; Back</button>
+            <button className="App-detail-button">&lt; Back</button>
         </Link>
-        <div className="info-detail">
+        <div className="App-detail-info">
             <img src={props.oneCharacter.image} alt={props.oneCharacter.name} />
-            <div className="info-detail-names">
+            <div className="App-detail-info-names">
                 <h1>{props.oneCharacter.name}</h1>
                 <p>Species: {props.oneCharacter.species + ' '}
                     {(props.oneCharacter.species === 'Alien')
@@ -27,5 +28,8 @@ const CharacterDetail = (props) => {
             </div>
         </div>
     </div>
+}
+CharacterDetail.propTypes = {
+    oneCharacter: PropTypes.object
 }
 export default CharacterDetail

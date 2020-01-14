@@ -1,0 +1,72 @@
+.App {
+  background-color: black;
+  text-align: center;
+  width: 100%;
+  &-logo{
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  &-search{
+    text-align: center;
+    background-color: black;
+    border:solid 2px rgb(24, 255, 186) ;
+    color:rgb(24, 255, 186);
+    font-weight:bold;
+    font-size: 20px;
+    display: block;
+    margin: auto;
+  }
+  &-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    list-style: none;
+    text-decoration: none;
+    margin-top: 30px;
+    &-li{
+      text-decoration: none;
+      list-style: none;
+      margin: 20px;
+      border: solid 2px rgb(24, 255, 186);
+      padding:20px;
+      &-character{
+        text-decoration: none;
+        color: rgb(24, 255, 186);
+      }
+    }
+  }
+  &-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-button{
+      border:none;
+      background-color: black;
+      color: rgb(24, 255, 186);
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    &-info{
+      display: flex;
+      justify-content: center;
+      max-width: 700px;
+      color:rgb(24, 255, 186);
+      margin:20px;
+      padding: 30px;
+      border:solid 2px rgb(24, 255, 186);  
+      &-names{
+        display:flex;
+        flex-direction: column;
+        margin-left: 25px;
+      }
+    }
+  }
+}    
+i{
+  font-size: 20px;
+}

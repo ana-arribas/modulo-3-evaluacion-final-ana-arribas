@@ -6,7 +6,7 @@ const Filters = (props) => {
     }
     return (
         <input
-            className="search"
+            className="App-search"
             type="text"
             id="search"
             name="search"
