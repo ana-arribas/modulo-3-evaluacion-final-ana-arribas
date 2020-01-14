@@ -16,10 +16,9 @@
 }
 
 .logo{
- height: 200px;
- width:380px;
  display: block;
  margin: auto;
+ margin-bottom: 10px;
 }
 .list {
   display: flex;
@@ -29,21 +28,30 @@
   justify-content: space-evenly;
   list-style: none;
   text-decoration: none;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .character-li{
   text-decoration: none;
   list-style: none;
   margin: 20px;
+  border: solid 2px rgb(24, 255, 186);
+  padding:20px
 }
 .link-character{
   text-decoration: none;
   color: rgb(24, 255, 186);
 }
 .info-detail{
+  display: flex;
+  justify-content: center;
   color:rgb(24, 255, 186);
   margin-top: 20px;
   padding-bottom: 50px;
+}
+.info-detail-names{
+  display:flex;
+  flex-direction: column;
+  margin-left: 25px;
 }
 .button-back{
   border: none;
@@ -52,4 +60,7 @@
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
+}
+i{
+  font-size: 20px;
 }

@@ -5,7 +5,7 @@ import CharacterList from './CharacterList.js';
 import Filters from './Filters.js';
 import { Switch, Route } from 'react-router-dom';
 import CharacterDetail from './CharacterDetail';
-import logo2 from '../images/logo2.jpg';
+import logo2 from '../images/logo2.png';
 
 class App extends React.Component {
   constructor(props) {
