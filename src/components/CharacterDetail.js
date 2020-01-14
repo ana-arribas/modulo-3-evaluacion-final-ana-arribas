@@ -1,16 +1,17 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const CharacterDetail = (props) => {
-    console.log(props)
     return <div>
-
-        <img src={props.oneCharacter.image} />
+        <Link to="/">
+            <button>Volver</button>
+        </Link>
+        <img src={props.oneCharacter.image} alt={props.oneCharacter.name} />
         <h1>{props.oneCharacter.name}</h1>
-        <p>{props.oneCharacter.species}</p>
-        {/* <p>{props.oneCharacter.origin.name}</p> */}
-        {/* <p>{props.oneCharacter.episode.length}</p> */}
-        <p>{props.oneCharacter.status}</p>
+        <p>Species: {props.oneCharacter.species}</p>
+        <p>Planet: {props.oneCharacter.origin.name}</p>
+        <p>Episodes: {props.oneCharacter.episode.length}</p>
+        <p>Status: {props.oneCharacter.status}</p>
     </div>
 }
 

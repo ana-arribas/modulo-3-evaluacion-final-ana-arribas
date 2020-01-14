@@ -1,22 +1,23 @@
 import React from 'react';
 import '../stylesheets/App.css';
-import { fetchToApi, fetch2 } from '../services/api.js';
+import { fetchToApi } from '../services/api.js';
 import CharacterList from './CharacterList.js';
 import Filters from './Filters.js';
 import { Switch, Route } from 'react-router-dom';
 import CharacterDetail from './CharacterDetail';
+import logo2 from '../images/logo2.jpg';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       allCharacters: [],
-      value: '',
-      singleCharacter: {}
+      inputValue: '',
+      // singleCharacter: {}
     }
-    this.lifting = this.lifting.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     this.renderCharacter = this.renderCharacter.bind(this)
-    this.fetch2 = this.fetch2.bind(this)
+    // this.singleFetch = this.singleFetch.bind(this)
 
   }
 
@@ -29,42 +30,52 @@ class App extends React.Component {
       })
   }
 
-  fetch2(id) {
-    if (id !== this.state.singleCharacter.id) {
-      fetch2(id)
-        .then(data => {
-          this.setState({
-            singleCharacter: data
-          })
-          console.log(this.state.singleCharacter)
-        })
-    }
-  }
+  // singleFetch(id) {
+  //   // if (id !== this.state.singleCharacter.id) {
+  //   singleFetch(id)
+  //     .then(data => {
+  //       this.setState({
+  //         singleCharacter: data
+  //       })
+  //       console.log(this.state.singleCharacter)
+  //     })
+  //   // }
+  // }
 
-  lifting(patata) {
+  handleChange(data) {
     this.setState({
-      value: patata
+      inputValue: data
     })
   }
 
+  // renderCharacter(props) {
+  //   // console.log(props)
+  //   this.singleFetch(props.match.params.id);
+  //   return <CharacterDetail oneCharacter={this.state.singleCharacter}
+  //   // pathid={props.match.params.id}
+  //   />
+  // }
+
   renderCharacter(props) {
-    // console.log(props)
-    this.fetch2(props.match.params.id);
-    return <CharacterDetail oneCharacter={this.state.singleCharacter}
-    // pathid={props.match.params.id}
+    const routeId = parseInt(props.match.params.id);
+    // const detail = this.state.allCharacters.find(item => item.id === routeId);
+    return <CharacterDetail
+      oneCharacter={this.state.allCharacters.find(item => item.id === routeId)}
+
     />
   }
 
   render() {
     return (
       <div className="App" >
+        <img className="logo" src={logo2} alt="logo" />
         <Switch>
           <Route exact path="/">
             <Filters
-              lifting={this.lifting} />
+              handleChange={this.handleChange} />
             <CharacterList
               allCharacters={this.state.allCharacters}
-              value={this.state.value}
+              inputValue={this.state.inputValue}
             />
           </Route>
           <Route path="/character/:id" render={this.renderCharacter} />

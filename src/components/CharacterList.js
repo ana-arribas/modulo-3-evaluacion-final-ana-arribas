@@ -2,14 +2,14 @@ import React from 'react';
 import CharacterCard from './CharacterCard';
 
 const CharacterList = (props) => {
-    return <ul>
+    return <ul className="list">
         {props.allCharacters
-            .filter(eachCharacter => props.value === '' || eachCharacter.name.toLowerCase().includes(props.value.toLowerCase()))
-            .map(eachCharacter => <li key={eachCharacter.id}>
+            .filter(eachCharacter => props.inputValue === '' || eachCharacter.name.toLowerCase().includes(props.inputValue.toLowerCase()))
+            .map(eachCharacter => <li className="character-li" key={eachCharacter.id}>
                 <CharacterCard
                     image={eachCharacter.image}
                     name={eachCharacter.name}
-                    specie={eachCharacter.species}
+                    species={eachCharacter.species}
                     id={eachCharacter.id}
                 />
             </li>

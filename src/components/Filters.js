@@ -2,20 +2,20 @@ import React from 'react'
 
 const Filters = (props) => {
 
-    const lifting = (event) => {
-        props.lifting(event.target.value)
+    const handleChange = (event) => {
+        props.handleChange(event.target.value)
     }
 
-    return (<form className="search">
-        <label htmlFor="search">Buscar</label>
+    return (
         <input
+            className="search"
             type="text"
             id="search"
             name="search"
-            value={props.value}
-            onChange={lifting}
+            value={props.inputValue}
+            onChange={handleChange}
         />
-    </form>
+
     );
 }
 
