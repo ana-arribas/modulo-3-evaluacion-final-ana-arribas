@@ -1,14 +1,25 @@
 .App {
   background-color: black;
+  text-align: center;
+  width: 100%;
 }
 
 .search{
   text-align: center;
+  background-color: black;
+  border:solid 2px rgb(24, 255, 186) ;
+  color:rgb(24, 255, 186);
+  font-weight:bold;
+  font-size: 20px;
+  display: block;
+  margin: auto;
 }
 
 .logo{
  height: 200px;
  width:380px;
+ display: block;
+ margin: auto;
 }
 .list {
   display: flex;
@@ -18,12 +29,27 @@
   justify-content: space-evenly;
   list-style: none;
   text-decoration: none;
+  margin-top: 50px;
 }
 .character-li{
   text-decoration: none;
   list-style: none;
+  margin: 20px;
 }
 .link-character{
   text-decoration: none;
   color: rgb(24, 255, 186);
+}
+.info-detail{
+  color:rgb(24, 255, 186);
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+.button-back{
+  border: none;
+  background-color: black;
+  color: rgb(24, 255, 186);
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
 }

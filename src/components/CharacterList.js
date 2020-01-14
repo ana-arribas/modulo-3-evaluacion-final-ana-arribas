@@ -1,5 +1,6 @@
 import React from 'react';
 import CharacterCard from './CharacterCard';
+import PropTypes from 'prop-types';
 
 const CharacterList = (props) => {
     return <ul className="list">
@@ -16,5 +17,9 @@ const CharacterList = (props) => {
             )}
     </ul>
 }
+
+CharacterList.propTypes = {
+    allCharacters: PropTypes.array
+};
 
 export default CharacterList
