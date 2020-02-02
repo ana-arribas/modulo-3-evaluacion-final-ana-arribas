@@ -5,9 +5,6 @@ const Filters = (props) => {
         props.handleChange(event.target.value)
     }
 
-    // const handleCheck = (event) => {
-    //     props.handleCheck(event.target.checked)
-    // }
     return (<form>
         <input
             className="App-search"
@@ -17,14 +14,6 @@ const Filters = (props) => {
             value={props.inputValue}
             onChange={handleChange}
         />
-        {/* <input
-            className="App-search"
-            type="checkbox"
-            id="search"
-            name="search"
-            value={props.inputValue}
-            onChange={handleCheck}
-        /> */}
     </form>
     );
 }

@@ -13,11 +13,9 @@ class App extends React.Component {
     this.state = {
       allCharacters: [],
       inputValue: '',
-      oneCharacter: {},
-      // isChecked: false
+      oneCharacter: {}
     }
     this.handleChange = this.handleChange.bind(this)
-    // this.handleCheck = this.handleCheck.bind(this)
     this.renderCharacter = this.renderCharacter.bind(this)
     this.fetchForCharacter = this.fetchForCharacter.bind(this)
   }
@@ -59,12 +57,10 @@ class App extends React.Component {
           <Route exact path="/">
             <Filters
               handleChange={this.handleChange}
-            // handleCheck={this.handleCheck} 
             />
             <CharacterList
               allCharacters={this.state.allCharacters}
               inputValue={this.state.inputValue}
-            // isChecked={this.state.isChecked}
             />
           </Route>
           <Route path="/character/:id" render={this.renderCharacter} />

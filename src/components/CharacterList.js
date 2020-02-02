@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 const CharacterList = (props) => {
     return <ul className="App-list">
         {props.allCharacters
-            // .filter(item => props.isChecked ? item.gender === 'Female' : true)
             .filter(eachCharacter => props.inputValue === '' || eachCharacter.name.toLowerCase().includes(props.inputValue.toLowerCase()))
             .map(eachCharacter => <li className="App-list-li" key={eachCharacter.id}>
                 <CharacterCard
