@@ -8,20 +8,20 @@ const CharacterDetail = (props) => {
             <button className="App-detail-button">&lt; Back</button>
         </Link>
         <div className="App-detail-info">
-            <img src={props.oneCharacter.image} alt={props.oneCharacter.name} />
+            <img src={props.singleCharacter.image} alt={props.singleCharacter.name} />
             <div className="App-detail-info-names">
-                <h1>{props.oneCharacter.name}</h1>
-                <p>Species: {props.oneCharacter.species + ' '}
-                    {(props.oneCharacter.species === 'Alien')
+                <h1>{props.singleCharacter.name}</h1>
+                <p>Species: {props.singleCharacter.species + ' '}
+                    {(props.singleCharacter.species === 'Alien')
                         ? <i class="fab fa-optin-monster"></i>
                         : <i class="fas fa-male"></i>}
                 </p>
-                <p>Planet: {props.oneCharacter.origin.name}</p>
-                <p>Episodes: {props.oneCharacter.episode.length}</p>
-                <p>Status: {props.oneCharacter.status + ' '}
-                    {(props.oneCharacter.status === 'Alive')
+                {/* <p>Planet: {props.singleCharacter.origin.name}</p> */}
+                {/* <p>Episodes: {props.singleCharacter.episode.length}</p> */}
+                <p>Status: {props.singleCharacter.status + ' '}
+                    {(props.singleCharacter.status === 'Alive')
                         ? <i class="fas fa-heart"></i>
-                        : (props.oneCharacter.status === 'Dead')
+                        : (props.singleCharacter.status === 'Dead')
                             ? <i class="fas fa-skull-crossbones"></i>
                             : <i class="fas fa-question"></i>}
                 </p>

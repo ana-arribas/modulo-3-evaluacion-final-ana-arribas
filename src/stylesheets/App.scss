@@ -15,7 +15,10 @@
     font-weight:bold;
     font-size: 20px;
     display: block;
-    margin: auto;
+    margin: 15px auto;
+  }
+  &-radio{
+    color: rgb(24, 255, 186);
   }
   &-list {
     display: flex;

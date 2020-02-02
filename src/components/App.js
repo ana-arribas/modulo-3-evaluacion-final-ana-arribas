@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/App.scss';
-import { fetchToApi } from '../services/api.js';
+import { fetchToApi, fetchForCharacter } from '../services/api.js';
 import CharacterList from './CharacterList.js';
 import Filters from './Filters.js';
 import { Switch, Route } from 'react-router-dom';
@@ -12,10 +12,14 @@ class App extends React.Component {
     super(props)
     this.state = {
       allCharacters: [],
-      inputValue: ''
+      inputValue: '',
+      oneCharacter: {},
+      // isChecked: false
     }
     this.handleChange = this.handleChange.bind(this)
+    // this.handleCheck = this.handleCheck.bind(this)
     this.renderCharacter = this.renderCharacter.bind(this)
+    this.fetchForCharacter = this.fetchForCharacter.bind(this)
   }
   componentDidMount() {
     fetchToApi()
@@ -25,17 +29,28 @@ class App extends React.Component {
         })
       })
   }
+
+  fetchForCharacter(id) {
+    if (id !== this.state.oneCharacter.id) {
+      fetchForCharacter(id).then(data => {
+        this.setState({
+          oneCharacter: data
+        })
+      })
+    }
+  }
+
   handleChange(data) {
     this.setState({
       inputValue: data
     })
   }
+
   renderCharacter(props) {
-    const routeId = parseInt(props.match.params.id);
-    return <CharacterDetail
-      oneCharacter={this.state.allCharacters.find(item => item.id === routeId)}
-    />
+    this.fetchForCharacter(parseInt(props.match.params.id));
+    return <CharacterDetail singleCharacter={this.state.oneCharacter} />
   }
+
   render() {
     return (
       <div className="App" >
@@ -43,10 +58,13 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <Filters
-              handleChange={this.handleChange} />
+              handleChange={this.handleChange}
+            // handleCheck={this.handleCheck} 
+            />
             <CharacterList
               allCharacters={this.state.allCharacters}
               inputValue={this.state.inputValue}
+            // isChecked={this.state.isChecked}
             />
           </Route>
           <Route path="/character/:id" render={this.renderCharacter} />
